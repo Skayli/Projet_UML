@@ -39,6 +39,9 @@ public class JeuDeCarte {
 			c2 = getRandomCarte();
 		} while(Carte.areEquals(c1, c2));
 		
+//		System.out.println("Carte 1 : " + c1);
+//		System.out.println("Carte 2 : " + c2);
+		
 		int scoreTour = comparerCartes(c1, c2);
 		
 		updateScoreJoueur(scoreTour);
@@ -61,8 +64,16 @@ public class JeuDeCarte {
 		joueur.updateScore(scoreTour);
 	}
 	
-	public int comparerCartes(Carte carteA, Carte carteB) {
-		return 1;
+	public int comparerCartes(Carte c1, Carte c2) {
+		int sommeValeur = c1.getRang().value + c2.getRang().value;
+		
+		if(c1.getCouleur().couleur == c2.getCouleur().couleur && c1.getRang() == c2.getRang()) {
+			sommeValeur *= -2;
+		} else if (c1.getRang() == c2.getRang()) {
+			sommeValeur *= -1;
+		}
+		
+		return sommeValeur;
 	}
 	
 	public boolean isPartieTerminee() {

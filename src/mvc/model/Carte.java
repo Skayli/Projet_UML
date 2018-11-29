@@ -5,7 +5,7 @@ public class Carte {
 	/** Rang de la carte. */
 	@SuppressWarnings("all")
 	public enum Rang {
-		SEPT(0, "7"), HUIT(0, "8"), NEUF(0, "9"), VALET(2,"valet"), DAME(4,"dame"), ROI(5,"roi"), DIX(10, "10"), AS(11,"as");
+		SEPT(0, "7"), HUIT(0, "8"), NEUF(0, "9"), VALET(2,"valet"), DAME(3,"dame"), ROI(4,"roi"), DIX(10, "10"), AS(11,"as");
 		
 		String description;
 		int value;
