@@ -22,11 +22,19 @@ public class Joueur {
 		return score;
 	}
 	
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
 	/********************
 	 * Fonctions utiles *
 	 ********************/
 	public void updateScore(int addToScore) {
 		this.score += addToScore;
+	}
+	
+	public String toString() {
+		return "[Joueur => Nom : " + this.nom + " | Score : " + this.score + "]"; 
 	}
 
 }

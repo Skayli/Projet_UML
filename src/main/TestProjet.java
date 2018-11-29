@@ -24,6 +24,10 @@ public class TestProjet {
 		Joueur j = new Joueur("Pseudo");
 		JeuDeCarte partie = new JeuDeCarte(j);
 		
+		for(int i = 0; i < 5; i++) {
+			partie.jouerTour();
+		}
+		
 		/********
 		 * View *
 		 ********/

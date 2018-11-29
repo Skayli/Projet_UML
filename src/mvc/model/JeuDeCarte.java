@@ -39,14 +39,15 @@ public class JeuDeCarte {
 			c2 = getRandomCarte();
 		} while(Carte.areEquals(c1, c2));
 		
-//		System.out.println("Carte 1 : " + c1);
-//		System.out.println("Carte 2 : " + c2);
-		
 		int scoreTour = comparerCartes(c1, c2);
 		
 		updateScoreJoueur(scoreTour);
 		
 		tourActuel++;
+		
+		if(isPartieTerminee()) {
+			
+		}
 	}
 
 	private Carte getRandomCarte() {
