@@ -1,6 +1,9 @@
 package main;
 
 import mvc.controller.GameController;
+import mvc.model.Carte;
+import mvc.model.Carte.Couleur;
+import mvc.model.Carte.Rang;
 import mvc.model.JeuDeCarte;
 import mvc.model.Joueur;
 import mvc.view.cadre.Cadre;
@@ -13,7 +16,7 @@ import mvc.view.screen_manager.ScreenManager;
 public class TestProjet {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 		
 		/*********
 		 * Model *
@@ -41,9 +44,6 @@ public class TestProjet {
 		
 		// Cadre (fenetre) 
 		Cadre cadre = new Cadre(sc);
-		
-		
-		
 		
 		/**************
 		 * Controller *

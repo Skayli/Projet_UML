@@ -68,5 +68,9 @@ public class Carte {
 	public String toString() {
 		return this.rang + " de " + this.couleur;
 	}
+	
+	public static boolean areEquals(Carte c1, Carte c2) {
+		return c1.getRang() == c2.getRang() && c1.getCouleur() == c2.getCouleur();
+	}
 	   
 }
