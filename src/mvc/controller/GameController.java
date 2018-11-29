@@ -1,15 +1,15 @@
 package mvc.controller;
 
-import mvc.model.Partie;
+import mvc.model.JeuDeCarte;
 import mvc.view.cadre.Cadre;
 
 public class GameController {
 	
-	private Partie partie;
+	private JeuDeCarte jeu;
 	private Cadre cadre;
 
-	public GameController(Partie partie, Cadre cadre) {
-		this.partie = partie;
+	public GameController(JeuDeCarte jeu, Cadre cadre) {
+		this.jeu = jeu;
 		this.cadre = cadre;
 		
 		// Initialisation du cadre avec l'écran "menu"

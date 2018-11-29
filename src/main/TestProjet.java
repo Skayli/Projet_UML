@@ -1,7 +1,8 @@
 package main;
 
 import mvc.controller.GameController;
-import mvc.model.Partie;
+import mvc.model.JeuDeCarte;
+import mvc.model.Joueur;
 import mvc.view.cadre.Cadre;
 import mvc.view.screen.MenuScreen;
 import mvc.view.screen.PlayScreen;
@@ -17,9 +18,8 @@ public class TestProjet {
 		/*********
 		 * Model *
 		 *********/
-		Partie p = new Partie();
-		
-		
+		Joueur j = new Joueur("Pseudo");
+		JeuDeCarte partie = new JeuDeCarte(j);
 		
 		/********
 		 * View *
@@ -40,7 +40,7 @@ public class TestProjet {
 		sc.addScreen("play", play);
 		
 		// Cadre (fenetre) 
-		Cadre c = new Cadre(sc);
+		Cadre cadre = new Cadre(sc);
 		
 		
 		
@@ -50,22 +50,22 @@ public class TestProjet {
 		 **************/
 		
 		// Controller
-		GameController gc = new GameController(p, c);
+		GameController gc = new GameController(partie, cadre);
 		
 		
 		/************
 		 * Observer *
 		 ************/
 		// DP Observer
-		menu.toPseudo.addObserver(c);
-		menu.toScore.addObserver(c);
+		menu.toPseudo.addObserver(cadre);
+		menu.toScore.addObserver(cadre);
 		
-		pseudo.toMenu.addObserver(c);
-		pseudo.toPlay.addObserver(c);
+		pseudo.toMenu.addObserver(cadre);
+		pseudo.toPlay.addObserver(cadre);
 		
-		score.toMenu.addObserver(c);
+		score.toMenu.addObserver(cadre);
 		
-		play.toMenu.addObserver(c);
+		play.toMenu.addObserver(cadre);
 		
 	}
 
