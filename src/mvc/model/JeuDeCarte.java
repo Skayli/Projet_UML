@@ -6,15 +6,17 @@ import mvc.model.Carte.Rang;
 public class JeuDeCarte {
 	
 	private Joueur joueur;
-	private int nbTour;
-	private int tourActuel;
+	private final int MAX_TOURS = 5;
+	private int tour;
 	
 	public JeuDeCarte(Joueur joueur) {
 		// TODO Auto-generated constructor stub
 		this.joueur = joueur;
-		
-		this.nbTour = 5;
-		this.tourActuel = 1;
+		this.tour = 1;
+	}
+	
+	public void initialiserPartie(Joueur j) {
+		this.joueur = j;
 	}
 	
 	/********************
@@ -34,35 +36,20 @@ public class JeuDeCarte {
 	public void jouerTour() {
 		Carte c1, c2;
 		
-		c1 = getRandomCarte();
+		c1 = joueur.tirerCarte();
+		
 		do {
-			c2 = getRandomCarte();
+			c2 = joueur.tirerCarte();
 		} while(Carte.areEquals(c1, c2));
 		
+		
 		int scoreTour = comparerCartes(c1, c2);
-		
-		updateScoreJoueur(scoreTour);
-		
-		tourActuel++;
-		
-		if(isPartieTerminee()) {
-			
-		}
-	}
-
-	private Carte getRandomCarte() {
-		// TODO Auto-generated method stub
-		int rang = (int) (Math.random() * Carte.Rang.values().length);
-		int couleur = (int) (Math.random() * Carte.Couleur.values().length);
-		
-		Rang rangCarte = Carte.Rang.values()[rang];
-		Couleur couleurCarte = Carte.Couleur.values()[couleur];
-		
-		return new Carte(rangCarte, couleurCarte);
-	}
-
-	public void updateScoreJoueur(int scoreTour) {
 		joueur.updateScore(scoreTour);
+		tour++;
+
+		if(isPartieTerminee()) {
+			System.out.println("partie terminée");
+		}
 	}
 	
 	public int comparerCartes(Carte c1, Carte c2) {
@@ -78,7 +65,7 @@ public class JeuDeCarte {
 	}
 	
 	public boolean isPartieTerminee() {
-		return this.tourActuel == this.nbTour;
+		return tour > MAX_TOURS;
 	}
 
 	//-----------------------------------------------------------------------------------------
