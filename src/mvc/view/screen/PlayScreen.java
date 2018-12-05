@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import mvc.view.button_listener.ListenerBoutonJouerTour;
 import mvc.view.button_listener.ListenerToScreenMenu;
 import mvc.view.cadre.Cadre;
 
@@ -15,8 +16,9 @@ import mvc.view.cadre.Cadre;
 public class PlayScreen extends Screen {
 
 	JPanel haut, centre, bas;
-	JButton buttonToMenu;
+	JButton buttonToMenu, buttonJouerTour;
 	public ListenerToScreenMenu toMenu;
+	public ListenerBoutonJouerTour jouerTour;
 	public PlayScreen() {
 		// TODO Auto-generated constructor stub
 		haut = new JPanel();
@@ -29,6 +31,12 @@ public class PlayScreen extends Screen {
 		buttonToMenu.addActionListener(toMenu);
 		buttonToMenu.setSize(50, 20);
 		
+		// Bouton jouer tour
+		buttonJouerTour = new JButton("Jouer un tour");
+		jouerTour = new ListenerBoutonJouerTour();
+		buttonJouerTour.addActionListener(jouerTour);
+		buttonJouerTour.setSize(50, 20);
+		
 		// Composants de "haut"
 		haut.add(new JLabel("Jouer"));
 		
@@ -40,6 +48,7 @@ public class PlayScreen extends Screen {
 		centre.setBackground(Color.yellow);
 		
 		// Composants de "bas"
+		bas.add(buttonJouerTour);
 		bas.add(buttonToMenu);
 	}
 

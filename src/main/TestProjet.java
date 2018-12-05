@@ -1,6 +1,7 @@
 package main;
 
 import mvc.controller.GameController;
+import mvc.controller.ListenerTourJouer;
 import mvc.model.Carte;
 import mvc.model.Carte.Couleur;
 import mvc.model.Carte.Rang;
@@ -23,10 +24,6 @@ public class TestProjet {
 		 *********/
 		Joueur j = new Joueur("Pseudo");
 		JeuDeCarte partie = new JeuDeCarte(j);
-		
-		for(int i = 0; i < 5; i++) {
-			partie.jouerTour();
-		}
 		
 		/********
 		 * View *
@@ -70,6 +67,7 @@ public class TestProjet {
 		score.toMenu.addObserver(cadre);
 		
 		play.toMenu.addObserver(cadre);
+		play.jouerTour.addObserver(new ListenerTourJouer(partie));
 		
 	}
 

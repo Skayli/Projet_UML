@@ -46,7 +46,7 @@ public class JeuDeCarte {
 		int scoreTour = comparerCartes(c1, c2);
 		joueur.updateScore(scoreTour);
 		tour++;
-
+		
 		if(isPartieTerminee()) {
 			System.out.println("partie terminée");
 		}
