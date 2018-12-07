@@ -1,6 +1,7 @@
 package main;
 
 import mvc.controller.GameController;
+import mvc.controller.ListenerAbandonPartie;
 import mvc.controller.ListenerCreationPartie;
 import mvc.controller.ListenerTourJouer;
 import mvc.model.Carte;
@@ -71,6 +72,7 @@ public class TestProjet {
 		score.toMenu.addObserver(cadre);
 		
 		play.toMenu.addObserver(cadre);
+		play.toMenu.addObserver(new ListenerAbandonPartie(gc));
 		play.jouerTour.addObserver(new ListenerTourJouer(gc));
 		
 //		partie.addObserver(cadre);

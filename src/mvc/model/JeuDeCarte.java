@@ -70,9 +70,6 @@ public class JeuDeCarte extends Observable {
 			
 			this.setChanged();
 			this.notifyObservers("score");
-			
-			joueur.setScore(0);
-			this.initialiserPartie(joueur);
 		}
 	}
 	
