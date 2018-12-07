@@ -1,5 +1,8 @@
 package mvc.model;
 
+import mvc.model.Carte.Couleur;
+import mvc.model.Carte.Rang;
+
 public class Carte {
 	
 	/** Rang de la carte. */
@@ -57,6 +60,18 @@ public class Carte {
 	 */
 	public Couleur getCouleur() {
 		return this.couleur;
+	}
+	
+	public static Carte piocher()
+	{
+		// TODO Auto-generated method stub
+		int rang = (int) (Math.random() * Carte.Rang.values().length);
+		int couleur = (int) (Math.random() * Carte.Couleur.values().length);
+		
+		Rang rangCarte = Carte.Rang.values()[rang];
+		Couleur couleurCarte = Carte.Couleur.values()[couleur];
+		
+		return new Carte(rangCarte, couleurCarte);
 	}
 
 
