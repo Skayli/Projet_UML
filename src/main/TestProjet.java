@@ -65,7 +65,7 @@ public class TestProjet {
 		
 		pseudo.toMenu.addObserver(cadre);
 		pseudo.toPlay.addObserver(cadre);
-		pseudo.toPlay.addObserver(new ListenerCreationPartie(gc)
+		pseudo.toPlay.addObserver(new ListenerCreationPartie(gc, pseudo)
 				);
 		
 		score.toMenu.addObserver(cadre);

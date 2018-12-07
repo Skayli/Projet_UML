@@ -48,21 +48,29 @@ public class TableauScore {
 		
 		Joueur newJoueur = new Joueur(joueur);
 		
-		for (int i=0; (i < tabScore.size()) && (i < MAX_SCORE_ENREGISTRES); i++)
+		if (this.tabScore.size() == 0)
 		{
-			if (joueur.getScore() < tabScore.get(i).getScore())
+			this.tabScore.add(newJoueur);
+			this.updateFile();
+		}
+		else
+		{
+			for (int i=0; (i < tabScore.size()) && (i < MAX_SCORE_ENREGISTRES); i++)
 			{
-				this.insererJoueur(newJoueur, i);
-				this.tabScore.set(i, newJoueur);
-				this.updateFile();
-				break;
-			}
-			
-			if ( (i == tabScore.size()-1) && (tabScore.size() < MAX_SCORE_ENREGISTRES) )
-			{
-				tabScore.add(newJoueur);
-				this.updateFile();
-				break;
+				if (joueur.getScore() < tabScore.get(i).getScore())
+				{
+					this.insererJoueur(newJoueur, i);
+					this.tabScore.set(i, newJoueur);
+					this.updateFile();
+					break;
+				}
+				
+				if ( (i == tabScore.size()-1) && (tabScore.size() < MAX_SCORE_ENREGISTRES) )
+				{
+					tabScore.add(newJoueur);
+					this.updateFile();
+					break;
+				}
 			}
 		}
 	}

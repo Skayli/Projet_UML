@@ -23,6 +23,7 @@ public class PseudoScreen extends Screen {
 	JButton buttonToMenu, buttonToPlay;
 	public ListenerToScreenMenu toMenu;
 	public ListenerToScreenPlay toPlay;
+	public JTextField textField;
 	
 	public PseudoScreen() {
 		// TODO Auto-generated constructor stub
@@ -50,7 +51,7 @@ public class PseudoScreen extends Screen {
 		centre.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel titre = new JLabel("Saisir pseudo");
 		titre.setHorizontalAlignment(SwingConstants.CENTER);
-		JTextField textField = new JTextField("pseudo");
+		textField = new JTextField("pseudo");
 		textField.setColumns(10);
 //		textField.setPreferredSize(new Dimension( 50, 20 ));
 //		textField.setMaximumSize(new Dimension( 50, 20 ));
