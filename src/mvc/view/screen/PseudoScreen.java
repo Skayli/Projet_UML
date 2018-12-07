@@ -2,9 +2,14 @@ package mvc.view.screen;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import mvc.view.button_listener.ListenerToScreenMenu;
@@ -42,10 +47,21 @@ public class PseudoScreen extends Screen {
 		haut.add(new JLabel("Pseudo"));
 		
 		// Composants de "centre"
-		centre.setLayout(new BorderLayout());
+		centre.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel titre = new JLabel("Saisir pseudo");
 		titre.setHorizontalAlignment(SwingConstants.CENTER);
+		JTextField textField = new JTextField("pseudo");
+		textField.setColumns(10);
+//		textField.setPreferredSize(new Dimension( 50, 20 ));
+//		textField.setMaximumSize(new Dimension( 50, 20 ));
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		
+//		JPanel wrapper = new JPanel( new FlowLayout(this.centre.getWidth()/2, this.centre.getHeight()/2, FlowLayout.LEADING) );
+//		wrapper.add( textField );
+		
+		
 		centre.add(titre, BorderLayout.CENTER);
+		centre.add(textField, BorderLayout.CENTER);
 		centre.setBackground(Color.pink);
 				
 		// Composants de "bas"

@@ -14,6 +14,10 @@ public class Joueur {
 		this.score = 0;
 	}
 	
+	public Joueur(Joueur j) {
+		this.nom = j.nom;
+		this.score = j.score;
+	}
 	/********************
 	 * GETTER & SETTERS *
 	 ********************/

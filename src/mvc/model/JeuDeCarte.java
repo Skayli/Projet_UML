@@ -1,11 +1,15 @@
 package mvc.model;
 
+import java.util.Observable;
+
+import mvc.controller.GameController;
 import mvc.model.Carte.Couleur;
 import mvc.model.Carte.Rang;
 
-public class JeuDeCarte {
+public class JeuDeCarte extends Observable {
 	
 	private Joueur joueur;
+	private GameController gameController;
 	private final int MAX_TOURS = 5;
 	private int tour;
 	
@@ -13,10 +17,12 @@ public class JeuDeCarte {
 		// TODO Auto-generated constructor stub
 		this.joueur = joueur;
 		this.tour = 1;
+		this.gameController = gameController;
 	}
 	
 	public void initialiserPartie(Joueur j) {
 		this.joueur = j;
+		this.tour = 1;
 	}
 	
 	/********************
@@ -28,6 +34,11 @@ public class JeuDeCarte {
 
 	public void setJoueur(Joueur joueur) {
 		this.joueur = joueur;
+	}
+	
+	public void setGameController(GameController gameController)
+	{
+		this.gameController = gameController;
 	}
 	
 	/********************
@@ -44,11 +55,24 @@ public class JeuDeCarte {
 		
 		
 		int scoreTour = comparerCartes(c1, c2);
+		System.out.println("Carte 1 : " + c1);
+		System.out.println("Carte 2 : " + c2);
+		System.out.println("ScoreTour = " + scoreTour);
 		joueur.updateScore(scoreTour);
 		tour++;
 		
 		if(isPartieTerminee()) {
 			System.out.println("partie terminée");
+			
+			System.out.println("Score joueur " + joueur.getScore());
+			
+			this.gameController.getTableauScores().updateScore(joueur);
+			
+			this.setChanged();
+			this.notifyObservers("score");
+			
+			joueur.setScore(0);
+			this.initialiserPartie(joueur);
 		}
 	}
 	

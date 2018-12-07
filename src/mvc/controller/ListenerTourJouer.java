@@ -7,17 +7,17 @@ import mvc.model.JeuDeCarte;
 
 public class ListenerTourJouer implements Observer {
 	
-	JeuDeCarte jeu;
+	GameController gc;
 
-	public ListenerTourJouer(JeuDeCarte c) {
+	public ListenerTourJouer(GameController gc) {
 		// TODO Auto-generated constructor stub
-		jeu = c;
+		this.gc = gc;
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		jeu.jouerTour();
+		gc.getJeu().jouerTour();
 	} 
 
 }

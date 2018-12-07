@@ -1,12 +1,15 @@
 package main;
 
 import mvc.controller.GameController;
+import mvc.controller.ListenerCreationPartie;
 import mvc.controller.ListenerTourJouer;
 import mvc.model.Carte;
 import mvc.model.Carte.Couleur;
 import mvc.model.Carte.Rang;
 import mvc.model.JeuDeCarte;
 import mvc.model.Joueur;
+import mvc.model.TableauScore;
+import mvc.view.button_listener.ListenerToScreenScore;
 import mvc.view.cadre.Cadre;
 import mvc.view.screen.MenuScreen;
 import mvc.view.screen.PlayScreen;
@@ -22,8 +25,8 @@ public class TestProjet {
 		/*********
 		 * Model *
 		 *********/
-		Joueur j = new Joueur("Pseudo");
-		JeuDeCarte partie = new JeuDeCarte(j);
+		
+		TableauScore tableauScore = new TableauScore();
 		
 		/********
 		 * View *
@@ -51,8 +54,7 @@ public class TestProjet {
 		 **************/
 		
 		// Controller
-		GameController gc = new GameController(partie, cadre);
-		
+		GameController gc = new GameController(cadre, tableauScore);
 		
 		/************
 		 * Observer *
@@ -63,11 +65,15 @@ public class TestProjet {
 		
 		pseudo.toMenu.addObserver(cadre);
 		pseudo.toPlay.addObserver(cadre);
+		pseudo.toPlay.addObserver(new ListenerCreationPartie(gc)
+				);
 		
 		score.toMenu.addObserver(cadre);
 		
 		play.toMenu.addObserver(cadre);
-		play.jouerTour.addObserver(new ListenerTourJouer(partie));
+		play.jouerTour.addObserver(new ListenerTourJouer(gc));
+		
+//		partie.addObserver(cadre);
 		
 	}
 
