@@ -59,8 +59,6 @@ public class JeuDeCarte extends Observable {
 			
 			this.setChanged();
 			this.notifyObservers("fin de partie");
-			
-			joueur = null;
 		}
 	}
 	
@@ -76,28 +74,8 @@ public class JeuDeCarte extends Observable {
 		return sommeValeur;
 	}
 	
-	public boolean isPartieTerminee() {
+	private boolean isPartieTerminee() {
 		return tour > MAX_TOURS;
-	}
-
-	public Carte getC1()
-	{
-		return c1;
-	}
-
-	public void setC1(Carte c1)
-	{
-		this.c1 = c1;
-	}
-
-	public Carte getC2()
-	{
-		return c2;
-	}
-
-	public void setC2(Carte c2)
-	{
-		this.c2 = c2;
 	}
 
 	//-----------------------------------------------------------------------------------------
