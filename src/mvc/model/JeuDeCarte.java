@@ -60,9 +60,6 @@ public class JeuDeCarte extends Observable {
 			this.setChanged();
 			this.notifyObservers("fin de partie");
 			
-			c1 = null;
-			c2 = null;
-			
 			joueur = null;
 		}
 	}

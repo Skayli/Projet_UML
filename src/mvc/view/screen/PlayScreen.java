@@ -35,6 +35,7 @@ public class PlayScreen extends Screen implements Observer {
 		toMenu = new ListenerToScreenMenu();
 		buttonToMenu.addActionListener(toMenu);
 		buttonToMenu.setSize(50, 20);
+		buttonToMenu.setFocusable(false);
 		
 		// Bouton vers les scores
 		buttonToScore = new JButton("Voir la liste des scores");
@@ -42,12 +43,14 @@ public class PlayScreen extends Screen implements Observer {
 		buttonToScore.addActionListener(toScore);
 		buttonToScore.setSize(50,20);
 		buttonToScore.setVisible(false);
+		buttonToScore.setFocusable(false);
 		
 		// Bouton jouer tour
 		buttonJouerTour = new JButton("Jouer un tour");
 		jouerTour = new ListenerBoutonJouerTour();
 		buttonJouerTour.addActionListener(jouerTour);
 		buttonJouerTour.setSize(50, 20);
+		buttonJouerTour.setFocusable(false);
 		
 		// Composants de "haut"
 		haut.add(new JLabel("Jouer"));
@@ -63,14 +66,6 @@ public class PlayScreen extends Screen implements Observer {
 		bas.add(buttonToScore);
 		bas.add(buttonJouerTour);
 		bas.add(buttonToMenu);
-	}
-
-	@Override
-	public void addContent(Cadre cadre) {
-		// TODO Auto-generated method stub
-		cadre.getContentPane().add(haut, BorderLayout.NORTH);
-		cadre.getContentPane().add(centre, BorderLayout.CENTER);
-		cadre.getContentPane().add(bas, BorderLayout.SOUTH);
 	}
 
 	@Override

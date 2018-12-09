@@ -36,12 +36,14 @@ public class PseudoScreen extends Screen {
 		toMenu = new ListenerToScreenMenu();
 		buttonToMenu.addActionListener(toMenu);
 		buttonToMenu.setSize(50, 20);
+		buttonToMenu.setFocusable(false);
 		
 		// Bouton vers jouer
 		buttonToPlay = new JButton("Jouer");
 		buttonToPlay.setSize(50, 20);
 		toPlay = new ListenerToScreenPlay();
 		buttonToPlay.addActionListener(toPlay);
+		buttonToPlay.setFocusable(false);
 
 		
 		// Composants de "haut"
@@ -69,15 +71,6 @@ public class PseudoScreen extends Screen {
 		bas.add(buttonToPlay);
 		bas.add(buttonToMenu);
 		
-		
-	}
-
-	@Override
-	public void addContent(Cadre cadre) {
-		// TODO Auto-generated method stub
-		cadre.add(haut, BorderLayout.NORTH);
-		cadre.add(centre, BorderLayout.CENTER);
-		cadre.add(bas, BorderLayout.SOUTH);
 	}
 
 }

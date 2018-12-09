@@ -54,13 +54,5 @@ public class MenuScreen extends Screen {
 		bas.add(buttonToScore);
 		
 	}
-	@Override
-	public void addContent(Cadre cadre) {
-		// TODO Auto-generated method stub
-		cadre.getContentPane().add(haut, BorderLayout.NORTH);
-		cadre.getContentPane().add(centre, BorderLayout.CENTER);
-		cadre.getContentPane().add(bas, BorderLayout.SOUTH);
 	
-	}
-
 }

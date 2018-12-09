@@ -29,6 +29,7 @@ public class ScoreScreen extends Screen {
 		toMenu = new ListenerToScreenMenu();
 		buttonToMenu.addActionListener(toMenu);
 		buttonToMenu.setSize(50, 20);
+		buttonToMenu.setFocusable(false);
 		
 		// Composants de "haut"
 		haut.add(new JLabel("Score"));
@@ -42,14 +43,6 @@ public class ScoreScreen extends Screen {
 		
 		// Composants de "bas"
 		bas.add(buttonToMenu);
-	}
-
-	@Override
-	public void addContent(Cadre cadre) {
-		// TODO Auto-generated method stub
-		cadre.getContentPane().add(haut, BorderLayout.NORTH);
-		cadre.getContentPane().add(centre, BorderLayout.CENTER);
-		cadre.getContentPane().add(bas, BorderLayout.SOUTH);
 	}
 
 }
