@@ -14,7 +14,6 @@ import mvc.view.cadre.Cadre;
 @SuppressWarnings("serial")
 public class ScoreScreen extends Screen {
 	
-	JPanel haut, centre, bas;
 	JButton buttonToMenu;
 	public ListenerToScreenMenu toMenu;
 

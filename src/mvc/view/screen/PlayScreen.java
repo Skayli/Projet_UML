@@ -18,7 +18,6 @@ import mvc.view.cadre.Cadre;
 @SuppressWarnings("serial")
 public class PlayScreen extends Screen implements Observer {
 
-	JPanel haut, centre, bas;
 	public JButton buttonToMenu, buttonJouerTour, buttonToScore;
 	public ListenerToScreenMenu toMenu;
 	public ListenerToScreenScore toScore;

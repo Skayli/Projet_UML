@@ -19,7 +19,6 @@ import mvc.view.cadre.Cadre;
 @SuppressWarnings("serial")
 public class PseudoScreen extends Screen {
 
-	JPanel haut, centre, bas;
 	JButton buttonToMenu, buttonToPlay;
 	public ListenerToScreenMenu toMenu;
 	public ListenerToScreenPlay toPlay;
