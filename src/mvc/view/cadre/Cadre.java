@@ -17,7 +17,7 @@ public class Cadre extends JFrame implements Observer {
 		// TODO Auto-generated constructor stub
 		this.sc = sc;
 		
-		this.setTitle("Test");
+		this.setTitle("Jeu de carte");
 		this.setSize(800, 600);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

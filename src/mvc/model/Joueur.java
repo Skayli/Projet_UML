@@ -41,7 +41,6 @@ public class Joueur {
 	}
 	
 	public Carte tirerCarte() {
-		
 		return Carte.piocher();
 	}
 

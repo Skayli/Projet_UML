@@ -1,9 +1,10 @@
 Joueur1 -26
 Quentin -11
+pseudo -4
 aaab -1
 Mathilde 3
 pseudo 5
 aaa 10
-Anthony 33
-aacccab 38
-pseudon 38
+pseudo 13
+pseudo 14
+pseudo 21

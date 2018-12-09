@@ -27,7 +27,7 @@ public class TestProjet {
 		 * Model *
 		 *********/
 		
-		TableauScore tableauScore = new TableauScore();
+		JeuDeCarte jeu = new JeuDeCarte();
 		
 		/********
 		 * View *
@@ -55,7 +55,7 @@ public class TestProjet {
 		 **************/
 		
 		// Controller
-		GameController gc = new GameController(cadre, tableauScore);
+		GameController gc = new GameController(cadre, jeu);
 		
 		/************
 		 * Observer *
@@ -66,16 +66,16 @@ public class TestProjet {
 		
 		pseudo.toMenu.addObserver(cadre);
 		pseudo.toPlay.addObserver(cadre);
-		pseudo.toPlay.addObserver(new ListenerCreationPartie(gc, pseudo)
-				);
+		pseudo.toPlay.addObserver(new ListenerCreationPartie(gc, pseudo, play));
 		
 		score.toMenu.addObserver(cadre);
 		
 		play.toMenu.addObserver(cadre);
 		play.toMenu.addObserver(new ListenerAbandonPartie(gc));
 		play.jouerTour.addObserver(new ListenerTourJouer(gc));
+		play.toScore.addObserver(cadre);
 		
-//		partie.addObserver(cadre);
+		jeu.addObserver(play);
 		
 	}
 

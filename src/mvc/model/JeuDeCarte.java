@@ -1,6 +1,7 @@
 package mvc.model;
 
 import java.util.Observable;
+import java.util.concurrent.TimeUnit;
 
 import mvc.controller.GameController;
 import mvc.model.Carte.Couleur;
@@ -10,45 +11,27 @@ public class JeuDeCarte extends Observable {
 	
 	private Joueur joueur;
 	private GameController gameController;
+	private TableauScore tabScores;
+	
 	private final int MAX_TOURS = 5;
 	private int tour;
 	
 	private Carte c1, c2;
 	
-	public JeuDeCarte(Joueur joueur) {
+	public JeuDeCarte() {
 		// TODO Auto-generated constructor stub
-		this.joueur = joueur;
+		this.tabScores = new TableauScore();
+	}
+	
+	public void initialiserPartie(String pseudo) {
+		this.joueur = new Joueur(pseudo);
 		this.tour = 1;
-		this.gameController = gameController;
-	}
-	
-	public void initialiserPartie(Joueur j) {
-		this.joueur = j;
-		this.tour = 1;
-	}
-	
-	/********************
-	 * GETTER & SETTERS *
-	 ********************/
-	public Joueur getJoueur() {
-		return joueur;
-	}
-
-	public void setJoueur(Joueur joueur) {
-		this.joueur = joueur;
-	}
-	
-	public void setGameController(GameController gameController)
-	{
-		this.gameController = gameController;
 	}
 	
 	/********************
 	 * Fonctions utiles *
 	 ********************/
-	public void jouerTour() {
-		Carte c1, c2;
-		
+	public void jouerTour() {		
 		c1 = joueur.tirerCarte();
 		
 		do {
@@ -57,21 +40,27 @@ public class JeuDeCarte extends Observable {
 		
 		
 		int scoreTour = comparerCartes(c1, c2);
+		
 		System.out.println("Carte 1 : " + c1);
 		System.out.println("Carte 2 : " + c2);
 		System.out.println("ScoreTour = " + scoreTour);
+		
 		joueur.updateScore(scoreTour);
 		tour++;
 		
 		if(isPartieTerminee()) {
 			System.out.println("partie terminée");
-			
 			System.out.println("Score joueur " + joueur.getScore());
 			
-			this.gameController.getTableauScores().updateScore(joueur);
+			this.tabScores.updateScore(joueur);
 			
 			this.setChanged();
-			this.notifyObservers("score");
+			this.notifyObservers("fin de partie");
+			
+			c1 = null;
+			c2 = null;
+			
+			joueur = null;
 		}
 	}
 	
