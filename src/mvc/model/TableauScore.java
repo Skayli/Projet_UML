@@ -95,19 +95,6 @@ public class TableauScore {
 		}
 	}
 	
-	private void decalageScore2(int index, Joueur j)
-	{
-		if (tabScore.size() < MAX_SCORE_ENREGISTRES)
-		{
-			tabScore.add(j);
-		}
-		
-		for (int i=tabScore.size()-1; i > index; i--)
-		{
-			this.tabScore.set(i, this.tabScore.get(i+1));
-		}
-	}
-	
 	private void updateFile()
 	{
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(fichierScore))) {

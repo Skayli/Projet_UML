@@ -10,7 +10,6 @@ import mvc.model.Carte.Rang;
 public class JeuDeCarte extends Observable {
 	
 	private Joueur joueur;
-	private GameController gameController;
 	private TableauScore tabScores;
 	
 	private final int MAX_TOURS = 5;
