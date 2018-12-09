@@ -40,8 +40,8 @@ public class Joueur {
 		this.score += addToScore;
 	}
 	
-	public Carte tirerCarte() {
-		return Carte.piocher();
+	public void tirerCarte(Carte carte) {
+		Carte.piocher(carte);
 	}
 
 	

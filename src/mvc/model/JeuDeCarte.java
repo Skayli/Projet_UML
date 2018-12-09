@@ -21,6 +21,9 @@ public class JeuDeCarte extends Observable {
 	public JeuDeCarte() {
 		// TODO Auto-generated constructor stub
 		this.tabScores = new TableauScore();
+		
+		this.c1 = new Carte();
+		this.c2 = new Carte();
 	}
 	
 	public void initialiserPartie(String pseudo) {
@@ -32,10 +35,10 @@ public class JeuDeCarte extends Observable {
 	 * Fonctions utiles *
 	 ********************/
 	public void jouerTour() {		
-		c1 = joueur.tirerCarte();
+		joueur.tirerCarte(c1);
 		
 		do {
-			c2 = joueur.tirerCarte();
+			joueur.tirerCarte(c2);
 		} while(Carte.areEquals(c1, c2));
 		
 		
