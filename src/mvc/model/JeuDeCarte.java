@@ -48,6 +48,17 @@ public class JeuDeCarte extends Observable {
 		System.out.println("ScoreTour = " + scoreTour);
 		
 		joueur.updateScore(scoreTour);
+		
+		// Update du screen "play"
+		String[] data = new String[5];
+		data[0] = c1.toString();
+		data[1] = c2.toString();
+		data[2] = String.valueOf(tour);
+		data[3] = String.valueOf(joueur.getScore());
+		data[4] = String.valueOf(scoreTour);
+		this.setChanged();
+		this.notifyObservers(data);
+		
 		tour++;
 		
 		if(isPartieTerminee()) {
@@ -75,6 +86,10 @@ public class JeuDeCarte extends Observable {
 	
 	private boolean isPartieTerminee() {
 		return tour > MAX_TOURS;
+	}
+	
+	public TableauScore getTabScores() {
+		return this.tabScores;
 	}
 
 	//-----------------------------------------------------------------------------------------

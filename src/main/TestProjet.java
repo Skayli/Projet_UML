@@ -38,6 +38,7 @@ public class TestProjet {
 		MenuScreen menu = new MenuScreen();
 		PseudoScreen pseudo = new PseudoScreen();
 		ScoreScreen score = new ScoreScreen();
+		score.updateScreenScore(jeu.getTabScores().getTopScores());
 		PlayScreen play = new PlayScreen();
 		
 		// Screen manager
@@ -77,6 +78,8 @@ public class TestProjet {
 		play.toScore.addObserver(cadre);
 		
 		jeu.addObserver(play);
+		
+		jeu.getTabScores().addObserver(score);
 		
 	}
 

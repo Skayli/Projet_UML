@@ -24,6 +24,7 @@ public class ListenerCreationPartie implements Observer
 	public void update(Observable o, Object arg)
 	{
 		this.gameController.createPartie(ps.textField.getText());
+		this.play.reset();
 		
 		this.play.buttonJouerTour.setVisible(true);
 		this.play.buttonToMenu.setVisible(true);

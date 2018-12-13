@@ -8,8 +8,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class TableauScore {
+public class TableauScore extends Observable {
 	
 	File fichierScore;
 	final int MAX_SCORE_ENREGISTRES = 10;
@@ -73,6 +74,9 @@ public class TableauScore {
 				}
 			}
 		}
+		
+		this.setChanged();
+		this.notifyObservers(tabScore);
 	}
 	
 	private void insererJoueur(Joueur j, int index)
@@ -93,6 +97,10 @@ public class TableauScore {
 			}
 			
 		}
+	}
+	
+	public ArrayList<Joueur> getTopScores() {
+		return this.tabScore;
 	}
 	
 	private void updateFile()
