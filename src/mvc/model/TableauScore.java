@@ -40,7 +40,7 @@ public class TableauScore {
 		}
 		    
 	
-		System.out.println("Liste des recors -> " + tabScore);
+		System.out.println("Liste des records -> " + tabScore);
 		
 	}
 	
